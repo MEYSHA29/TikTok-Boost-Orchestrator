@@ -1,0 +1,85 @@
+# TikTok Boost Orchestrator Configuration
+# Fill in your details and run: python main.py
+
+# Target TikTok Account
+target:
+  username: "your_tiktok_username"      # For followers
+  video_url: "https://www.tiktok.com/@username/video/1234567890"  # For views/likes/shares
+
+# Services to farm (followers, views, likes, shares, favorites)
+services:
+  - followers
+  - views
+  - likes
+  - shares
+
+# Provider Settings
+providers:
+  zefoy:
+    enabled: true
+    url: "https://zefoy.com"
+    # CAPTCHA solving: "ocr" (free, image text), "2captcha", "anticaptcha", "manual"
+    captcha_solver: "ocr"
+    # 2captcha API key (if using 2captcha)
+    api_key_2captcha: ""
+    # Anti-Captcha API key (if using anticaptcha)
+    api_key_anticaptcha: ""
+    # Browser mode: "headless" or "visible"
+    browser_mode: "headless"
+    # Proxy (optional) - format: "http://user:pass@host:port"
+    proxy: ""
+
+  fireliker:
+    enabled: true
+    url: "https://fireliker.com"
+    captcha_solver: "ocr"
+    api_key_2captcha: ""
+    api_key_anticaptcha: ""
+    browser_mode: "headless"
+    proxy: ""
+
+  mytoolstown:
+    enabled: true
+    url: "https://mytoolstown.com/tiktok"
+    captcha_solver: "ocr"
+    api_key_2captcha: ""
+    api_key_anticaptcha: ""
+    browser_mode: "headless"
+    proxy: ""
+    # Credit farming settings
+    credit_farming:
+      enabled: true
+      max_farm_per_session: 50  # How many follows/likes to do per farming session
+
+  vipto:
+    enabled: true
+    url: "https://vipto.de"
+    captcha_solver: "ocr"
+    api_key_2captcha: ""
+    api_key_anticaptcha: ""
+    browser_mode: "headless"
+    proxy: ""
+
+# Global Settings
+global:
+  # Rotation strategy: "round_robin", "priority", "random"
+  rotation_strategy: "priority"
+  # Delay between requests (seconds) - randomized between min and max
+  delay_min: 3
+  delay_max: 8
+  # Cooldown buffer (seconds) - add extra time to provider cooldowns
+  cooldown_buffer: 30
+  # Max retries per request
+  max_retries: 3
+  # Session persistence directory
+  session_dir: "./sessions"
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  log_level: "INFO"
+  # Proxy rotation file (one proxy per line, optional)
+  proxy_list_file: ""
+  # Concurrent provider limit
+  max_concurrent: 2
+  # Auto-restart on crash
+  auto_restart: true
+  # Statistics output file
+  stats_file: "./sessions/stats.json"

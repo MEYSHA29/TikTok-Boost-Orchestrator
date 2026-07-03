@@ -1,0 +1,26 @@
+# TikTok Boost Orchestrator - Dependencies
+# Install: pip install -r requirements.txt
+
+# HTTP & Browser Automation
+httpx>=0.27.0
+playwright>=1.44.0
+tls-client>=1.0.0
+
+# CAPTCHA Solving
+pytesseract>=0.3.10
+Pillow>=10.3.0
+anticaptchaofficial>=1.0.47
+
+# Data & Config
+PyYAML>=6.0.1
+pydantic>=2.7.0
+
+# Utilities
+loguru>=0.7.2
+beautifulsoup4>=4.12.3
+lxml>=5.2.2
+fake-useragent>=1.5.1
+
+# Async
+aiohttp>=3.9.5
+asyncio-throttle>=1.0.2
